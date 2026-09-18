@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大阪・东京・京都 十日 · Selina 一家的日本秋日之旅</title>
+<meta name="description" content="9/29-10/8，大阪(抵达+USJ)→东京(探亲)→京都(精华一日)→大阪(购物+送机)。2大3小，含逐段可核实的换乘导航、USJ两日券购买指南、京都一日精华动线。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:#263238; --ink-soft:#4d5d66; --muted:#7b8d94;
+    --cream:#fff8ed; --cream-deep:#f5e8c8; --paper:#fffdf8;
+    --gold:#d9a441; --gold-deep:#8a6420; --gold-light:#e8c87f;
+    --green:#5b8c5a; --green-deep:#3d6147; --green-soft:#a8c98a;
+    --azalea:#d85c72; --azalea-soft:#f5c2cb;
+    --brown:#7a593f; --brown-light:#c4a584;
+    --sky:#cdefff; --sun:#ffd76b;
+    --rail:#2f6fa8; --rail-deep:#1c4a73; --rail-soft:#dceaf5;
+    --alert:#c0392b; --alert-soft:#fbe4e1;
+    /* 三城各自的识别色：东京=都市蓝 · 京都=鸟居朱 · 大阪=活力橙 */
+    --r-tokyo:#2f6fa8; --r-tokyo-deep:#1c4a73;
+    --r-kyoto:#c8452f; --r-kyoto-deep:#8f2f1e;
+    --r-osaka:#e0742a; --r-osaka-deep:#b0511a;
+    --line:rgba(38,50,56,0.10); --line-warm:rgba(217,164,65,0.28); --line-rail:rgba(47,111,168,0.25);
+    --shadow-lg:0 24px 60px rgba(38,50,56,0.18);
+    --shadow-md:0 14px 36px rgba(38,50,56,0.12);
+    --shadow-sm:0 6px 18px rgba(38,50,56,0.08);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;
+    color:var(--ink); line-height:1.78; font-size:15.5px;
+    background:var(--cream); overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(circle at 12% 10%, rgba(217,164,65,0.05) 0%, transparent 45%),
+      radial-gradient(circle at 88% 92%, rgba(224,116,42,0.05) 0%, transparent 45%);
+  }
+
+  /* ===== Entry overlay ===== */
+  .enter-overlay{
+    position:fixed; inset:0; z-index:2000;
+    display:flex; align-items:center; justify-content:center;
+    padding:28px; cursor:pointer;
+    background:
+      radial-gradient(ellipse at 20% 25%, rgba(217,164,65,0.16) 0%, transparent 45%),
+      radial-gradient(ellipse at 80% 80%, rgba(224,116,42,0.18) 0%, transparent 45%),
+      linear-gradient(135deg, #1c2620 0%, #223244 50%, #2a1f2b 100%);
+    transition:opacity .65s ease, visibility .65s ease;
+  }
+  .enter-overlay.hidden{opacity:0; visibility:hidden; pointer-events:none}
+  .enter-card{
+    text-align:center; max-width:640px; color:#fff5dc;
+    animation:enter-rise .9s cubic-bezier(.2,.7,.2,1) both;
+  }
+  @keyframes enter-rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+  .enter-eyebrow{
+    font-family:"Cormorant Garamond",serif; font-style:italic;
+    font-size:14px; letter-spacing:0.35em; text-transform:uppercase;
+    color:var(--gold-light); margin-bottom:22px;
+  }
+  .enter-name{
+    font-family:"Noto Serif SC",serif; font-weight:500;
+    font-size:clamp(30px,5vw,48px); line-height:1.3;
+    letter-spacing:0.04em; margin-bottom:14px; color:#fff5dc;
+  }
+  .enter-name .accent{color:var(--gold-light);
+    font-family:"Cormorant Garamond",serif; font-style:italic; font-weight:500}
+  .enter-sub{
+    font-family:"Noto Serif SC",serif; font-weight:400;
+    font-size:14.5px; line-height:1.95; max-width:520px; margin:8px auto 24px;
+    color:rgba(255,245,220,0.78);
+  }
+  .enter-date{
+    font-family:"JetBrains Mono",monospace; font-size:13px;
+    letter-spacing:0.08em; color:rgba(255,245,220,0.62);
+    border-top:1px solid rgba(255,245,220,0.18);
+    border-bottom:1px solid rgba(255,245,220,0.18);
+    padding:10px 22px; display:inline-block; margin-bottom:30px;
+  }
+  .enter-btn{
+    font-family:inherit; font-size:15px; font-weight:700;
+    letter-spacing:0.04em; color:#1c2620;
+    background:linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+    border:none; border-radius:40px; padding:14px 40px; cursor:pointer;
+    display:inline-flex; align-items:center; gap:10px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.42);
+    transition:transform .18s, box-shadow .18s;
+    animation:enter-btn-pulse 2.8s ease-in-out infinite;
+  }
+  .enter-btn:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 14px 36px rgba(0,0,0,0.5)}
+  .enter-btn-ico{font-size:11px}
+  @keyframes enter-btn-pulse{
+    0%,100%{box-shadow:0 10px 30px rgba(0,0,0,0.42)}
+    50%{box-shadow:0 10px 30px rgba(0,0,0,0.42), 0 0 0 12px rgba(232,200,127,0.13)}
+  }
+  .enter-hint{margin-top:18px; font-size:12px; letter-spacing:0.05em; color:rgba(255,245,220,0.42)}
+  .enter-route{
+    display:flex; gap:8px; align-items:center; justify-content:center; flex-wrap:wrap;
+    margin-bottom:26px; font-family:"JetBrains Mono",monospace; font-size:11.5px;
+    letter-spacing:0.06em; color:rgba(255,245,220,0.55);
+  }
+  .enter-route span{padding:4px 12px; border:1px solid rgba(255,245,220,0.28); border-radius:20px}
+  .enter-route em{font-style:normal; color:rgba(255,245,220,0.35)}
+
+  /* ===== Hero ===== */
+  .hero{
+    position:relative; min-height:100vh; overflow:hidden;
+    display:grid; place-items:center; padding:80px 18px 130px;
+    background:linear-gradient(180deg, #d9eef8 0%, #fef0d5 56%, #f7dcb0 100%);
+  }
+  .sun{
+    position:absolute; right:13%; top:13%; width:120px; height:120px; border-radius:50%;
+    background:radial-gradient(circle, #fffce0 0%, #ffd76b 55%, rgba(255,215,107,0) 72%);
+    animation:sun-pulse 4.5s ease-in-out infinite;
+  }
+  @keyframes sun-pulse{50%{transform:scale(1.06);opacity:.92}}
+  .cloud{
+    position:absolute; background:#fff; border-radius:999px; opacity:0.85;
+    filter:drop-shadow(0 6px 14px rgba(84,108,128,.14));
+    animation:cloud-drift 38s linear infinite;
+  }
+  .cloud:before,.cloud:after{content:"";position:absolute;background:#fff;border-radius:50%}
+  .cloud.c1{width:160px;height:50px;top:11%;left:-180px}
+  .cloud.c1:before{width:78px;height:78px;left:30px;top:-32px}
+  .cloud.c1:after{width:96px;height:96px;right:18px;top:-44px}
+  .cloud.c2{width:230px;height:64px;top:22%;left:-280px;animation-duration:52s;animation-delay:5s;opacity:0.72}
+  .cloud.c2:before{width:90px;height:90px;left:42px;top:-44px}
+  .cloud.c2:after{width:110px;height:110px;right:30px;top:-54px}
+  .cloud.c3{width:140px;height:44px;top:34%;left:-160px;animation-duration:46s;animation-delay:18s;opacity:0.6}
+  .cloud.c3:before{width:66px;height:66px;left:24px;top:-28px}
+  .cloud.c3:after{width:80px;height:80px;right:14px;top:-36px}
+  @keyframes cloud-drift{to{transform:translateX(calc(100vw + 380px))}}
+  .bird{position:absolute;font-size:18px;color:rgba(38,50,56,0.45);font-weight:700;animation:bird-fly 26s linear infinite}
+  .bird.b1{top:18%;left:-40px;animation-delay:3s}
+  .bird.b2{top:25%;left:-40px;animation-delay:13s;font-size:14px;opacity:0.7}
+  @keyframes bird-fly{
+    0%{transform:translateX(0) translateY(0)}
+    50%{transform:translateX(50vw) translateY(-22px)}
+    100%{transform:translateX(105vw) translateY(0)}
+  }
+
+  .skyline{
+    position:absolute; left:0; right:0; bottom:18%; height:24%; pointer-events:none; opacity:0.85;
+    background:linear-gradient(180deg, #48606a 0%, #2f4550 100%);
+    clip-path:polygon(0 100%, 0 55%, 4% 55%, 4% 30%, 9% 30%, 9% 48%, 14% 48%, 14% 20%, 19% 20%, 19% 42%, 25% 42%, 25% 10%, 31% 10%, 31% 46%, 37% 46%, 37% 26%, 43% 26%, 43% 50%, 49% 50%, 49% 15%, 55% 15%, 55% 44%, 61% 44%, 61% 32%, 67% 32%, 67% 52%, 73% 52%, 73% 22%, 79% 22%, 79% 46%, 85% 46%, 85% 12%, 91% 12%, 91% 50%, 96% 50%, 96% 38%, 100% 38%, 100% 100%);
+  }
+  .tower{
+    position:absolute; left:50%; bottom:18%; transform:translateX(-50%);
+    width:12px; height:26%; background:linear-gradient(180deg,#5a7688,#3a4f5a); opacity:0.9;
+    clip-path:polygon(38% 0, 62% 0, 78% 62%, 100% 100%, 0 100%, 22% 62%);
+  }
+  .tower:after{content:""; position:absolute; left:50%; top:-14px; transform:translateX(-50%); width:3px; height:16px; background:#5a7688}
+  .torii-accent{
+    position:absolute; left:32%; bottom:20%; width:64px; height:52px; transform:translateX(-50%);
+    opacity:0.72; pointer-events:none;
+  }
+  .torii-accent i{position:absolute; background:var(--r-kyoto); border-radius:2px}
+  .torii-accent .leg{width:6px; height:44px; bottom:0}
+  .torii-accent .leg1{left:8px}
+  .torii-accent .leg2{right:8px}
+  .torii-accent .beam1{width:64px; height:6px; top:6px; left:0}
+  .torii-accent .beam2{width:52px; height:5px; top:16px; left:6px}
+
+  .hero-card{
+    position:relative; z-index:5; max-width:780px; text-align:center;
+    background:rgba(255,253,248,0.86); -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,0.7);
+    border-radius:32px; padding:44px 36px; box-shadow:var(--shadow-lg);
+  }
+  .hero-eyebrow{
+    font-family:"Cormorant Garamond",serif; font-style:italic; font-weight:500;
+    font-size:13px; letter-spacing:0.4em; text-transform:uppercase;
+    color:var(--gold-deep); margin-bottom:14px;
+  }
+  .hero-card h1{
+    font-family:"Noto Serif SC",serif; font-weight:500;
+    font-size:clamp(32px,4.6vw,52px); line-height:1.25;
+    letter-spacing:0.03em; margin-bottom:16px; color:var(--ink);
+  }
+  .hero-card h1 .accent{color:var(--gold-deep);
+    font-family:"Cormorant Garamond","Noto Serif SC",serif; font-style:italic; font-weight:500}
+  .hero-card .deck{
+    font-family:"Noto Serif SC",serif; font-weight:400;
+    font-size:15.5px; color:var(--ink-soft); line-height:1.95;
+    max-width:580px; margin:0 auto 22px;
+  }
+  .hero-card .route-text{
+    font-size:13.5px; color:var(--muted); letter-spacing:0.02em;
+    line-height:2; margin-bottom:24px;
+  }
+  .hero-card .route-text strong{color:var(--gold-deep);font-weight:600}
+  .hero-dates{
+    display:inline-flex; gap:8px; align-items:baseline;
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    padding:10px 22px; font-family:"JetBrains Mono",monospace; font-size:12.5px;
+    color:var(--gold-deep); letter-spacing:0.05em; font-weight:600;
+  }
+
+  /* ===== Inline music player ===== */
+  .music-player{
+    display:flex; align-items:center; gap:11px;
+    max-width:440px; margin:24px auto 0;
+    padding:9px 16px;
+    background:rgba(245,232,200,0.65);
+    border:1px solid rgba(217,164,65,0.32);
+    border-radius:40px;
+  }
+  .mp-btn{
+    flex-shrink:0; width:32px; height:32px; padding:0;
+    border:none; border-radius:50%;
+    background:linear-gradient(135deg, var(--gold-deep) 0%, var(--gold) 100%);
+    color:#fff; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    font-size:11px; line-height:1;
+    box-shadow:0 2px 8px rgba(138,100,32,0.3);
+    transition:transform .15s;
+  }
+  .mp-btn:hover{transform:scale(1.1)}
+  .mp-icon-play{margin-left:2px}
+  .mp-icon-pause{display:none;letter-spacing:-1px}
+  .music-player.playing .mp-icon-play{display:none}
+  .music-player.playing .mp-icon-pause{display:inline}
+  .mp-track{position:relative; flex:1; height:5px; background:rgba(38,50,56,0.14); border-radius:3px; cursor:pointer}
+  .mp-fill{position:absolute; left:0; top:0; height:100%; width:0%; background:linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%); border-radius:3px}
+  .mp-thumb{position:absolute; top:50%; left:0%; width:13px; height:13px; transform:translate(-50%,-50%); background:#fff; border:2px solid var(--gold); border-radius:50%; box-shadow:0 1px 3px rgba(0,0,0,0.22); pointer-events:none}
+  .mp-time{flex-shrink:0; font-family:"JetBrains Mono",monospace; font-size:11px; font-weight:500; color:var(--gold-deep); min-width:78px; text-align:right}
+  .mp-now{flex-shrink:0; font-size:10.5px; color:var(--gold-deep); font-family:"JetBrains Mono",monospace; letter-spacing:0.04em; opacity:0.85; white-space:nowrap}
+
+  /* ===== Floating music button ===== */
+  .music-toggle{
+    position:fixed; bottom:24px; right:24px;
+    width:48px; height:48px; padding:0;
+    background:linear-gradient(135deg, var(--ink) 0%, var(--r-osaka-deep) 100%);
+    color:var(--gold-light);
+    border:1px solid rgba(217,164,65,0.5);
+    border-radius:50%; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 6px 20px rgba(38,50,56,0.32);
+    transition:opacity .2s, transform .2s;
+    z-index:999; opacity:0.88;
+  }
+  .music-toggle:hover{opacity:1;transform:translateY(-3px)}
+  .music-toggle.paused{opacity:0.5}
+  .music-toggle.paused:hover{opacity:0.88}
+  .music-icon{font-size:20px;line-height:1}
+  .music-toggle.playing .music-icon{animation:music-pulse 1.6s ease-in-out infinite}
+  @keyframes music-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}
+  .music-badge{
+    position:fixed; bottom:78px; right:24px; z-index:998;
+    background:rgba(38,50,56,0.85); color:var(--gold-light);
+    font-family:"JetBrains Mono",monospace; font-size:10.5px; letter-spacing:0.05em;
+    padding:5px 12px; border-radius:16px; opacity:0; transform:translateY(6px);
+    transition:opacity .4s, transform .4s; pointer-events:none; white-space:nowrap;
+  }
+  .music-badge.show{opacity:1; transform:translateY(0)}
+
+  /* ===== Main content ===== */
+  main{max-width:1200px; margin:-90px auto 60px; padding:0 18px; position:relative; z-index:6}
+
+  .section-eyebrow{
+    font-family:"Cormorant Garamond",serif; font-style:italic; font-weight:500;
+    font-size:13px; letter-spacing:0.3em; text-transform:uppercase;
+    color:var(--gold-deep); margin-bottom:8px; text-align:center;
+  }
+  .section-title{
+    font-family:"Noto Serif SC",serif; font-weight:500;
+    font-size:clamp(28px,4vw,44px); line-height:1.25;
+    letter-spacing:0.03em; margin-bottom:8px; text-align:center; color:var(--ink);
+  }
+  .section-title .accent{color:var(--gold-deep);
+    font-family:"Cormorant Garamond","Noto Serif SC",serif; font-style:italic}
+  .section-sub{
+    text-align:center; color:var(--ink-soft); font-size:14.5px; line-height:1.9;
+    max-width:700px; margin:0 auto 32px;
+  }
+
+  /* ===== Region nav strip ===== */
+  .region-nav{
+    display:flex; justify-content:center; align-items:center; gap:10px; flex-wrap:wrap;
+    margin:0 auto 56px; max-width:920px; padding:18px 22px;
+    background:var(--paper); border:1px solid var(--line); border-radius:40px;
+    box-shadow:var(--shadow-sm);
+  }
+  .region-nav a{
+    font-family:"JetBrains Mono",monospace; font-size:12px; font-weight:600; letter-spacing:0.04em;
+    color:var(--ink); text-decoration:none; padding:8px 16px; border-radius:24px;
+    background:var(--cream); border:1px solid var(--line); transition:all .2s;
+    display:flex; flex-direction:column; align-items:center; gap:2px;
+  }
+  .region-nav a span{font-size:9.5px; color:var(--muted); font-weight:400}
+  .region-nav a:hover{background:var(--gold-light); border-color:var(--gold)}
+  .region-nav .arrow{color:var(--muted); font-size:14px}
+
+  /* ===== Region header ===== */
+  .region-header{text-align:center; margin:74px 0 8px}
+  .region-header:first-of-type{margin-top:0}
+  .region-eyebrow{
+    font-family:"Cormorant Garamond",serif; font-style:italic;
+    font-size:13px; letter-spacing:0.4em; text-transform:uppercase; margin-bottom:10px;
+  }
+  .region-title{
+    font-family:"Noto Serif SC",serif; font-weight:500;
+    font-size:clamp(32px,5vw,50px); margin-bottom:14px;
+  }
+  .region-note{max-width:680px; margin:0 auto 30px; color:var(--ink-soft); font-size:14.5px; line-height:1.9; text-align:center}
+
+  /* ===== Hotel / spots gallery ===== */
+  .spots-section{margin:0 auto 40px; max-width:1200px}
+  .spot-card{
+    background:var(--paper); border:1px solid var(--line);
+    border-radius:28px; overflow:hidden;
+    box-shadow:var(--shadow-md); margin-bottom:32px;
+    display:grid; grid-template-columns:1fr 1fr; grid-template-areas:"photo body";
+  }
+  .spot-card.featured{grid-template-columns:1.3fr 1fr}
+  .spot-card.reverse{grid-template-columns:1fr 1.3fr; grid-template-areas:"body photo"}
+  .spot-photo{grid-area:photo; position:relative; min-height:340px; overflow:hidden; background:linear-gradient(135deg, var(--cream-deep), var(--cream))}
+  .spot-photo>img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; transition:transform .8s ease}
+  .spot-card:hover .spot-photo>img{transform:scale(1.04)}
+  .spot-photo .photo-tag{
+    position:absolute; top:18px; left:18px; z-index:2;
+    background:rgba(255,253,248,0.95); color:var(--gold-deep);
+    font-size:11px; font-weight:700; letter-spacing:0.18em;
+    padding:6px 14px; border-radius:30px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.15);
+  }
+  .spot-thumbs{position:absolute; bottom:14px; left:14px; right:14px; display:flex; gap:8px; z-index:2}
+  .spot-thumbs img{width:60px; height:46px; object-fit:cover; border-radius:6px; border:2px solid rgba(255,255,255,0.88); box-shadow:0 2px 8px rgba(0,0,0,0.3); cursor:pointer; transition:transform .2s}
+  .spot-thumbs img:hover{transform:scale(1.1); border-color:#fff}
+  .spot-body{grid-area:body; padding:32px 36px; display:flex; flex-direction:column; justify-content:center}
+  .spot-no{font-family:"Cormorant Garamond",serif; font-style:italic; font-size:14px; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold-deep); margin-bottom:10px}
+  .spot-name{font-family:"Noto Serif SC",serif; font-weight:500; font-size:clamp(22px,2.8vw,30px); line-height:1.3; margin-bottom:8px; color:var(--ink); letter-spacing:0.02em}
+  .spot-name .accent-line{display:block; width:36px; height:2px; background:var(--gold); margin:14px 0 16px}
+  .spot-desc{color:var(--ink-soft); font-size:14.5px; line-height:1.9; margin-bottom:18px}
+  .spot-desc strong{color:var(--gold-deep); font-weight:600}
+  .spot-meta{display:grid; gap:6px; padding-top:14px; border-top:1px dashed var(--line); font-family:"JetBrains Mono",monospace; font-size:12px; color:var(--muted); line-height:1.7}
+  .spot-meta div span{color:var(--gold-deep); font-weight:600; margin-right:6px}
+  .spot-meta .caveat{color:var(--muted); font-style:italic; font-size:11px}
+
+  /* ===== Day timeline ===== */
+  .day-panel{background:var(--paper); border:1px solid var(--line); border-radius:28px; padding:32px 30px; margin:24px 0; box-shadow:var(--shadow-md)}
+  .day-header-row{display:flex; align-items:baseline; gap:18px; flex-wrap:wrap; border-bottom:2px solid var(--line); padding-bottom:12px; margin-bottom:20px}
+  .day-badge{font-family:"Cormorant Garamond",serif; font-style:italic; background:linear-gradient(135deg, var(--gold-deep), var(--gold)); color:#fff; padding:6px 18px; border-radius:30px; font-size:14px; font-weight:600; letter-spacing:0.08em; box-shadow:0 3px 10px rgba(138,100,32,0.25)}
+  .day-h{font-family:"Noto Serif SC",serif; font-size:24px; font-weight:500; color:var(--ink)}
+  .day-h small{display:block; font-size:12px; color:var(--muted); font-family:"JetBrains Mono",monospace; letter-spacing:0.04em; margin-top:3px; font-weight:400}
+  .day-weather{margin-left:auto; display:inline-flex; align-items:center; gap:9px; background:linear-gradient(135deg,#eaf4fb,#f6fbff); border:1px solid var(--line-rail); border-radius:22px; padding:7px 15px; font-family:"JetBrains Mono",monospace; font-size:11.5px; color:var(--rail-deep); white-space:nowrap; align-self:center}
+  .day-weather .ico{font-size:16px; line-height:1}
+  .day-weather .t{font-weight:600}
+  .day-weather .cond{color:var(--muted); font-weight:400}
+  @media(max-width:680px){.day-weather{margin-left:0; margin-top:6px}}
+  .timeline{display:grid; gap:14px}
+  .slot{display:grid; grid-template-columns:110px 1fr; grid-template-areas:"time event"; gap:18px; align-items:stretch}
+  .slot .time{grid-area:time; background:linear-gradient(135deg, var(--green-deep) 0%, var(--green) 100%); color:#fff; border-radius:18px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:12px 8px; box-shadow:0 4px 12px rgba(61,97,71,0.22)}
+  .slot .time strong{font-family:"JetBrains Mono",monospace; font-size:14px; font-weight:600; letter-spacing:0.02em; line-height:1.3}
+  .slot .time em{font-style:normal; font-size:10.5px; opacity:0.82; margin-top:2px; letter-spacing:0.02em}
+  .slot .event{grid-area:event; background:#fff; border:1px solid var(--line); border-radius:18px; padding:16px 20px; box-shadow:var(--shadow-sm)}
+  .slot .event h3{font-family:"Noto Serif SC",serif; font-size:17px; font-weight:600; color:var(--ink); margin-bottom:6px}
+  .slot .event p{color:var(--ink-soft); font-size:14px; line-height:1.85}
+  .slot .event small{display:block; margin-top:8px; color:var(--muted); font-family:"JetBrains Mono",monospace; font-size:11.5px; letter-spacing:0.03em}
+  .slot.highlight .event{background:linear-gradient(135deg, #fff9ef 0%, #fff 100%); border-color:var(--line-warm)}
+  .slot.highlight .event h3{color:var(--gold-deep)}
+  .slot.transit-slot .time{background:linear-gradient(135deg, var(--rail-deep) 0%, var(--rail) 100%); box-shadow:0 4px 12px rgba(28,74,115,0.22)}
+  .slot.transit-slot .event{background:linear-gradient(135deg, #eef5fb 0%, #fff 100%); border-color:var(--line-rail)}
+  .slot.transit-slot .event h3{color:var(--rail-deep)}
+
+  /* ===== Transit card (核心：换乘导航) ===== */
+  .transit-card{
+    background:linear-gradient(135deg,#eef5fb 0%, #dceaf5 100%);
+    border:1px solid var(--line-rail); border-radius:28px;
+    padding:34px 36px; margin:44px 0; box-shadow:var(--shadow-md);
+  }
+  .transit-head{display:flex; align-items:center; gap:16px; margin-bottom:8px; flex-wrap:wrap}
+  .transit-badge{
+    flex-shrink:0; width:52px; height:52px; border-radius:50%;
+    background:linear-gradient(135deg, var(--rail-deep), var(--rail)); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-size:24px;
+    box-shadow:0 6px 16px rgba(28,74,115,0.28);
+  }
+  .transit-title-wrap{flex:1; min-width:200px}
+  .transit-eyebrow{font-family:"Cormorant Garamond",serif; font-style:italic; font-size:12px; letter-spacing:0.3em; text-transform:uppercase; color:var(--rail-deep)}
+  .transit-route{font-family:"Noto Serif SC",serif; font-size:22px; font-weight:600; color:var(--rail-deep); margin-top:2px}
+  .transit-duration{
+    font-family:"JetBrains Mono",monospace; font-size:12.5px; color:var(--rail-deep);
+    background:#fff; padding:6px 16px; border-radius:20px; border:1px solid var(--line-rail);
+    white-space:nowrap; font-weight:600;
+  }
+  .transit-steps{display:grid; gap:13px; margin:22px 0 6px}
+  .transit-step{display:grid; grid-template-columns:30px 1fr; gap:13px; align-items:start}
+  .transit-step .num{width:26px; height:26px; border-radius:50%; background:var(--rail-deep); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; font-family:"JetBrains Mono",monospace; flex-shrink:0; margin-top:1px}
+  .transit-step .txt{font-size:14px; line-height:1.85; color:var(--ink-soft)}
+  .transit-step .txt strong{color:var(--rail-deep); font-weight:600}
+  .transit-warn{background:#fff; border-left:4px solid var(--alert); border-radius:12px; padding:14px 18px; margin-top:18px; font-size:13.5px; line-height:1.85; color:var(--ink-soft)}
+  .transit-warn .lbl{color:var(--alert); font-weight:700; font-size:12px; letter-spacing:0.06em; display:block; margin-bottom:4px}
+  .transit-tip{background:rgba(91,140,90,0.12); border-radius:12px; padding:12px 18px; margin-top:10px; font-size:13px; color:var(--green-deep); line-height:1.8}
+  .transit-tip .lbl{font-weight:700; letter-spacing:0.04em; margin-right:4px}
+  .transit-src{margin-top:16px; padding-top:12px; border-top:1px dashed var(--line-rail); font-family:"JetBrains Mono",monospace; font-size:10.5px; color:var(--muted); line-height:1.9}
+  .transit-src a{color:var(--rail-deep)}
+  .transit-photo{width:100%; max-height:180px; object-fit:cover; border-radius:16px; margin-bottom:18px; box-shadow:var(--shadow-sm)}
+
+  /* ===== Info cards ===== */
+  .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:6px}
+  .info-card{background:linear-gradient(135deg, var(--cream) 0%, var(--paper) 100%); border:1px solid var(--line); border-radius:18px; padding:18px 20px}
+  .info-card .label{font-family:"Cormorant Garamond",serif; font-style:italic; font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold-deep); margin-bottom:8px}
+  .info-card h4{font-family:"Noto Serif SC",serif; font-size:16px; font-weight:600; margin-bottom:10px; color:var(--ink)}
+  .info-card .rows{display:grid; grid-template-columns:minmax(0,1fr); gap:5px; font-size:13px; color:var(--ink-soft)}
+  .info-card .rows .row{display:block; min-width:0; padding-left:68px; text-indent:-68px; word-break:break-word}
+  .info-card .rows .row>span:first-child{display:inline-block; min-width:60px; margin-right:8px; color:var(--muted); text-indent:0; vertical-align:top}
+  .info-card .rows .row.caveat{padding-left:0; text-indent:0}
+  .info-card .rows strong{color:var(--ink);font-weight:600}
+
+  /* ===== Cautions ===== */
+  .cautions-panel{background:linear-gradient(135deg, #fff5e8 0%, #fef0d5 100%); border:1px solid var(--line-warm); border-left:5px solid var(--gold)}
+  /* ===== Weather panel ===== */
+  .weather-panel{background:linear-gradient(135deg,#eaf4fb 0%, #f5fbff 100%); border:1px solid var(--line-rail); border-left:5px solid var(--rail)}
+  .weather-rows{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; margin-top:6px}
+  .weather-city{background:#fff; border:1px solid var(--line-rail); border-radius:16px; padding:14px 18px}
+  .weather-city .cname{font-family:"Noto Serif SC",serif; font-weight:600; color:var(--rail-deep); font-size:15px; margin-bottom:5px}
+  .weather-city .temps{font-family:"JetBrains Mono",monospace; font-size:14px; color:var(--ink); font-weight:600}
+  .weather-city .feel{font-size:12.5px; color:var(--ink-soft); line-height:1.75; margin-top:5px}
+  .weather-city .feel strong{color:var(--rail-deep)}
+  .weather-city a{font-family:"JetBrains Mono",monospace; font-size:11px; color:var(--rail-deep); text-decoration:none; display:inline-block; margin-top:9px; padding:4px 10px; background:var(--rail-soft); border-radius:14px}
+  .weather-city a:hover{background:var(--rail); color:#fff}
+  .weather-disclaimer{font-size:12.5px; color:var(--ink-soft); line-height:1.85; margin-top:16px; padding-top:13px; border-top:1px dashed var(--line-rail)}
+  .weather-disclaimer strong{color:var(--alert)}
+  .caution-list{display:grid; gap:11px; margin-top:6px}
+  .caution-list .item{display:grid; grid-template-columns:32px 1fr; gap:10px; align-items:start; padding:11px 0; border-bottom:1px dashed rgba(217,164,65,0.3)}
+  .caution-list .item:last-child{border-bottom:none}
+  .caution-list .ico{width:26px; height:26px; border-radius:50%; background:rgba(217,164,65,0.18); color:var(--gold-deep); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700}
+  .caution-list .text{font-size:13.5px; line-height:1.78; color:var(--ink-soft)}
+  .caution-list .text strong{color:var(--gold-deep); font-weight:600}
+
+  /* ===== Family band ===== */
+  .family-band{background:linear-gradient(180deg, #fef8eb 0%, #f7dcb0 100%); padding:38px 28px; border-radius:28px; position:relative; overflow:hidden; border:1px solid var(--line); margin:24px 0}
+  .family-band .caption{text-align:center; margin-bottom:18px}
+  .family-band .caption-eyebrow{font-family:"Cormorant Garamond",serif; font-style:italic; font-size:13px; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold-deep); margin-bottom:8px}
+  .family-band .caption-text{font-family:"Noto Serif SC",serif; font-size:18px; font-weight:500; color:var(--ink); line-height:1.7}
+  .silhouettes{position:relative; height:140px; max-width:560px; margin:18px auto 0}
+  .silhouettes .hill{position:absolute; left:-5%; right:-5%; bottom:0; height:50px; background:linear-gradient(180deg, var(--green-soft), var(--green)); border-radius:50% 50% 0 0}
+  .person{position:absolute; bottom:30px; width:38px; height:80px; animation:bob 2.8s ease-in-out infinite}
+  .person:before{content:""; position:absolute; top:0; left:9px; width:20px; height:20px; border-radius:50%; background:#f0c29a}
+  .person:after{content:""; position:absolute; top:22px; left:5px; width:28px; height:42px; border-radius:14px 14px 8px 8px; background:var(--c)}
+  .person i{position:absolute; bottom:0; left:11px; width:6px; height:24px; background:#465a64; border-radius:6px; box-shadow:11px 0 0 #465a64; font-style:normal}
+  .p-a{left:14%; --c:#5b7c6d}
+  .p-b{left:31%; --c:#c47878; animation-delay:0.4s}
+  .p-c{left:48%; --c:#e0742a; height:60px; bottom:38px; animation-delay:0.7s}
+  .p-d{left:63%; --c:#3f6f8f; height:52px; bottom:40px; animation-delay:1s}
+  .p-e{left:78%; --c:#8a6420; height:52px; bottom:40px; animation-delay:1.3s}
+  @keyframes bob{50%{transform:translateY(-7px)}}
+
+  /* ===== Footer ===== */
+  footer{text-align:center; padding:40px 24px 60px; color:var(--muted); font-size:13px; border-top:1px solid var(--line); margin-top:36px}
+  footer .footer-quote{font-family:"Noto Serif SC",serif; font-size:18px; color:var(--ink); margin-bottom:10px; line-height:1.7}
+  footer .footer-credit{font-family:"JetBrains Mono",monospace; font-size:10.5px; letter-spacing:0.04em; color:var(--muted); margin-top:12px}
+  footer a{color:var(--gold-deep); text-decoration:none}
+
+  /* ===== Responsive ===== */
+  @media(max-width:840px){
+    .spot-card,.spot-card.featured,.spot-card.reverse{grid-template-columns:1fr; grid-template-areas:"photo" "body"}
+    .spot-photo{min-height:240px}
+    .spot-body{padding:24px 26px}
+    .transit-card{padding:26px 22px}
+  }
+  @media(max-width:680px){
+    .hero{padding:60px 14px 100px}
+    .slot{grid-template-columns:1fr; grid-template-areas:"time" "event"; gap:8px}
+    .slot .time{padding:8px; flex-direction:row; gap:8px; justify-content:flex-start}
+    .slot .time strong{font-size:14px}
+    .day-panel{padding:24px 20px}
+    .region-nav{gap:6px; padding:14px}
+    .region-nav a{padding:7px 12px; font-size:11px}
+  }
+  .bgm-sentinel{display:block; width:1px; height:1px; opacity:0; pointer-events:none}
+  @media print{.enter-overlay,.music-player,.music-toggle,.music-badge,.cloud,.bird{display:none!important}body{background:white}.hero{min-height:auto;background:white;padding:30px 0}.day-panel,.spot-card,.transit-card{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+<body>
+
+<!-- ============ ENTRY OVERLAY ============ -->
+<div class="enter-overlay" id="enter-overlay" role="button" tabindex="0" aria-label="进入旅程">
+  <div class="enter-card">
+    <div class="enter-eyebrow">FAMILY TRIP · AUTUMN 2026</div>
+    <div class="enter-name">大阪・东京・京都<br><span class="accent">秋日十日</span></div>
+    <div class="enter-route">
+      <span>大阪 抵达+USJ</span><em>→</em><span>东京 探亲</span><em>→</em><span>京都 一日</span><em>→</em><span>大阪 购物+送机</span>
+    </div>
+    <div class="enter-sub">Selina 一家 2 大 3 小的十天日本行——环球影城开场，东京看一眼二十年未见的表哥，京都挑最经典的走一圈，最后回大阪从容购物、分两天送机回澳洲。</div>
+    <div class="enter-date">2026 . 9 . 29 —— 10 . 8 · 大阪进出</div>
+    <button class="enter-btn" id="enter-btn" type="button"><span class="enter-btn-ico">▶</span> 进入旅程</button>
+    <div class="enter-hint">♪ 进入后背景音乐自动播放 · 会随大阪/东京/京都自动切换</div>
+  </div>
+</div>
+<noscript><style>#enter-overlay{display:none!important;}</style></noscript>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="sun"></div>
+  <div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div>
+  <div class="bird b1">⌒</div><div class="bird b2">⌒</div>
+  <div class="skyline"></div>
+  <div class="tower"></div>
+  <div class="torii-accent"><i class="leg leg1"></i><i class="leg leg2"></i><i class="beam1"></i><i class="beam2"></i></div>
+  <div class="hero-card">
+    <div class="hero-eyebrow">OSAKA · TOKYO · KYOTO · 10 DAYS</div>
+    <h1>Selina 一家的<br><span class="accent">日本秋日十日</span></h1>
+    <p class="deck">2 大 3 小，从大阪进、大阪出。先生带着三个孩子先到大阪玩两天环球影城，Selina 深夜赶到会合；接着一起去东京看看二十年没见的表哥，回程顺路在京都挑最经典的几个点走一走；最后回大阪留一整天购物，两人分两天先后飞回澳洲。</p>
+    <div class="route-text">
+      <strong>大阪</strong>（抵达 · 环球影城）→ <strong>东京</strong>（探亲）<br>
+      → <strong>京都</strong>（精华一日）→ <strong>大阪</strong>（购物 · 送机）
+    </div>
+    <div class="hero-dates">2026.09.29 —— 10.08 · 关西机场（KIX）进出</div>
+    <div class="music-player" id="music-player">
+      <button class="mp-btn" id="mp-btn" type="button" aria-label="背景音乐 播放/暂停"><span class="mp-icon-play">▶</span><span class="mp-icon-pause">❚❚</span></button>
+      <div class="mp-track" id="mp-track" role="slider" aria-label="音乐进度" tabindex="0"><div class="mp-fill" id="mp-fill"></div><div class="mp-thumb" id="mp-thumb"></div></div>
+      <span class="mp-time" id="mp-time">0:00 / 0:00</span>
+      <span class="mp-now" id="mp-now">♪ 大阪</span>
+    </div>
+  </div>
+</section>
+
+<main>
+
+<!-- ============ REGION NAV ============ -->
+<div class="region-nav">
+  <a href="#osaka-arrival"><strong>OSAKA</strong><span>Day 1-4</span></a>
+  <span class="arrow">→</span>
+  <a href="#tokyo"><strong>TOKYO</strong><span>Day 5</span></a>
+  <span class="arrow">→</span>
+  <a href="#kyoto"><strong>KYOTO</strong><span>Day 6-7</span></a>
+  <span class="arrow">→</span>
+  <a href="#osaka-final"><strong>OSAKA</strong><span>Day 8-10</span></a>
+  <span class="arrow">→</span>
+  <a href="#packing">行前准备</a>
+</div>
+
+<!-- ============ TRIP AT A GLANCE ============ -->
+<section class="spots-section">
+  <div class="section-eyebrow">TRIP AT A GLANCE · 一眼看懂这趟旅程</div>
+  <h2 class="section-title">为什么是 <span class="accent">大阪 → 东京 → 京都 → 大阪</span></h2>
+  <p class="section-sub">大阪进、大阪出（都是 KIX），中间去东京探亲、京都精华一日，最长的一段（大阪↔东京）安排在旅程中段体力最好的时候；从东京回程顺路在京都停一站（伏见稲荷就在京都站边上），最后收尾在大阪只是短短一段 JR，购物、送机都从容。</p>
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="label">Who · 一家几口</div>
+      <h4>2 大 3 小</h4>
+      <div class="rows">
+        <div class="row"><span>先生</span>带 3 个孩子先到，9/29 大阪</div>
+        <div class="row"><span>Selina</span>9/30 晚会合</div>
+        <div class="row"><span>两人</span>分两天先后飞回澳洲</div>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="label">Route · 路线</div>
+      <h4>大阪进出 · 中间探亲+古都</h4>
+      <div class="rows">
+        <div class="row"><span>大阪①</span>抵达 + USJ 两天</div>
+        <div class="row"><span>东京</span>探亲 1 天</div>
+        <div class="row"><span>京都</span>精华 1 天（伏见稲荷 + 金阁寺 + 祇园）</div>
+        <div class="row"><span>大阪②</span>购物 + 分批送机</div>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="label">Dates · 日期</div>
+      <h4>9/29 —— 10/8</h4>
+      <div class="rows">
+        <div class="row"><span>先生+3娃</span>9/29 14:00 到KIX（南航CZ389）→ 10/8 中午 KIX飞墨尔本（HO1506）</div>
+        <div class="row"><span>Selina</span>9/30 21:40 到KIX → 10/7 中午 KIX飞悉尼（航班待定）</div>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="label">Stay · 住宿</div>
+      <h4>候选：Olina's House</h4>
+      <div class="rows">
+        <div class="row"><span>位置</span>大阪东成区，靠近鹤桥站</div>
+        <div class="row"><span>类型</span>Airbnb 整套 4 卧室独立屋，适合家庭</div>
+        <div class="row caveat">※ 还没最终订，页面按候选处理，以实际预订为准</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OSAKA (ARRIVAL) ============ -->
+<section>
+<span class="bgm-sentinel" data-bgm-region="osaka" aria-hidden="true"></span>
+<div class="region-header" id="osaka-arrival">
+  <div class="region-eyebrow" style="color:var(--r-osaka-deep)">STAGE 1 · ARRIVAL + USJ</div>
+  <h2 class="region-title" style="color:var(--r-osaka-deep)">大阪 <span style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--r-osaka)">Osaka</span></h2>
+  <p class="region-note">9/29 —— 10/2。先生带 3 个孩子先落地，安顿下来；9/30 白天先去环球影城探路，当晚 Selina 深夜抵达会合；10/1 全家 5 口再战环球影城；10/2 上午轻松逛逛大阪城公园，午后搭新干线去东京。</p>
+</div>
+
+<div class="spots-section">
+  <article class="spot-card featured">
+    <div class="spot-photo">
+      <img src="images/olinas-house-ext.jpg" alt="鹤桥站 周边（非住宿实景，候选民宿具体照片以 Airbnb 页面为准）" loading="lazy">
+      <div class="photo-tag" style="color:var(--r-osaka-deep)">候选住宿 · 未最终确认</div>
+      <div class="spot-thumbs">
+        <img src="images/olinas-house-ext.jpg" alt="鹤桥站周边" onclick="this.closest('.spot-card').querySelector('.spot-photo > img').src=this.src">
+        <img src="images/tsuruhashi-station.jpg" alt="鹤桥站周边" onclick="this.closest('.spot-card').querySelector('.spot-photo > img').src=this.src">
+        <img src="images/osaka-street-evening.jpg" alt="大阪街景" onclick="this.closest('.spot-card').querySelector('.spot-photo > img').src=this.src">
+      </div>
+    </div>
+    <div class="spot-body">
+      <div class="spot-no">HOME BASE · 候选住宿</div>
+      <h3 class="spot-name">Olina's House · 东成区 / 鹤桥<span class="accent-line"></span></h3>
+      <p class="spot-desc"><strong>这项还没最终订，写在这里只是候选参考。</strong>Airbnb 上的整套 4 卧室独立屋，位置在大阪<strong>东成区、靠近鹤桥站</strong>，主打家庭/团体入住，5 个人住得开、不用拼房。鹤桥站有近铁/JR/大阪地下鉄多线交会，去难波、新大阪、关西机场换乘都方便。</p>
+      <div class="spot-meta">
+        <div><span>状态</span>候选，尚未最终确认预订</div>
+        <div><span>位置</span>大阪东成区 · 近鹤桥站</div>
+        <div><span>类型</span>Airbnb 整套 4 卧室独立屋</div>
+        <div class="caveat">※ 以 Airbnb 实际预订确认信息为准，价格/空房未在此列出</div>
+      </div>
+    </div>
+  </article>
+</div>
+
+<div class="spots-section">
+  <div class="section-eyebrow" style="color:var(--r-osaka-deep)">OSAKA HIGHLIGHTS · 抵达这几天</div>
+
+  <article class="spot-card reverse">
+    <div class="spot-photo">
+      <img src="images/usj-entrance.jpg" alt="环球影城 入口" loading="lazy">
+      <div class="photo-tag" style="color:var(--r-osaka-deep)">9/30-10/1 · USJ两日</div>
+      <div class="spot-thumbs">
+        <img src="images/usj-entrance.jpg" alt="USJ入口" onclick="this.closest('.spot-card').querySelector('.spot-photo > img').src=this.src">
+        <img src="images/usj-globe.jpg" alt="USJ地球仪" onclick="this.closest('.spot-card').querySelector('.spot-photo > img').src=this.src">
+        <img src="images/usj-crowd.jpg" alt="USJ园内" onclick="this.closest('.spot-card').querySelector('.spot-photo > img').src=this.src">
+      </div>
+    </div>
+    <div class="spot-body">
+      <div class="spot-no">01 · UNIVERSAL STUDIOS JAPAN</div>
+      <h3 class="spot-name">环球影城 · 两日游玩<span class="accent-line"></span></h3>
+      <p class="spot-desc">9/30 先生带 3 个孩子先玩一天（Selina 当晚才到，赶不上白天）；10/1 全家 5 口再一起续玩第二天，两天正好用<strong>「2 日 Studio Pass」</strong>覆盖。<strong>门票在哪买：</strong>官方 usj.co.jp 官网/APP 直购最稳妥（含日历式动态定价、退改规则清楚）；Klook、Trip.com 等第三方也是官方授权电子票，中文界面下单更方便。<strong>票价按当天的动态定价浮动，这里不写具体数字</strong>，建议临近入园日期前直接上官网/Klook 查当日实价再下单，越早订越稳。</p>
+      <div class="spot-meta">
+        <div><span>怎么买</span>usj.co.jp 官网/APP，或 Klook / Trip.com 等官方授权代理</div>
+        <div><span>定价</span>动态定价，价格随日期浮动，临近出发前再查实价</div>
+        <div><span>人数</span>按 2 大 3 小算票（如有孩子不参加，出发前再调整张数）</div>
+        <div class="caveat">※ 转卖/二手票二维码会被作废，务必走官方或官方授权渠道</div>
+      </div>
+    </div>
+  </article>
+
+  <article class="spot-card">
+    <div class="spot-photo">
+      <img src="images/osaka-castle-park2.jpg" alt="大阪城公园 护城河" loading="lazy">
+      <div class="photo-tag" style="color:var(--r-osaka-deep)">10/2 · 上午</div>
+      <div class="spot-thumbs">
+        <img src="images/osaka-castle-park2.jpg" alt="大阪城公园" onclick="this.closest('.spot-card').querySelector('.spot-photo > img').src=this.src">
+        <img src="images/osaka-castle-moat.jpg" alt="大阪城 护城河" onclick="this.closest('.spot-card').querySelector('.spot-photo > img').src=this.src">
+        <img src="images/osaka-castle-lawn.jpg" alt="大阪城公园 草坪" onclick="this.closest('.spot-card').querySelector('.spot-photo > img').src=this.src">
+      </div>
+    </div>
+    <div class="spot-body">
+      <div class="spot-no">02 · OSAKA CASTLE PARK · 缓冲日</div>
+      <h3 class="spot-name">大阪城公园 · 轻松放风<span class="accent-line"></span></h3>
+      <p class="spot-desc">USJ 两天玩得尽兴，这天不安排硬景点，<strong>只在大阪城公园外围走走、看护城河、晒晒太阳</strong>——公园本身免费开放，不特意登天守阁（省时间也省体力），当作赶新干线去东京前的缓冲半天。</p>
+      <div class="spot-meta">
+        <div><span>门票</span>公园本身免费（不含天守阁内部）</div>
+        <div><span>到站</span>JR「大阪城公园」站 或 地铁「森之宫」站</div>
+        <div><span>建议</span>轻松逛 1-2 小时即可，留出时间去新大阪站</div>
+      </div>
+    </div>
+  </article>
+</div>
+
+<div class="day-panel">
+  <div class="day-header-row"><div class="day-badge">DAY 1</div><div class="day-h">9月29日 · 周二 · 先生+3娃 抵达<small>ARRIVAL · CZ389 → KIX</small></div><div class="day-weather"><span class="ico">☀️</span><span class="t">约28°/20°</span><span class="cond">大阪·初秋，早晚转凉</span></div></div>
+  <div class="timeline">
+    <div class="slot transit-slot"><div class="time"><strong>14:00</strong><em>抵达</em></div><div class="event"><h3>南航 CZ389 抵达关西机场（KIX）</h3><p>先生带 3 个孩子落地，入境、取行李、办 IC 卡（Suica/ICOCA，手机可直接加钱包）。</p></div></div>
+    <div class="slot"><div class="time"><strong>傍晚</strong><em>入住</em></div><div class="event"><h3>入住大阪住处，附近简单吃点晚饭</h3><p>今天不排硬行程，安顿下来、倒时差，明天精神饱满去环球影城。</p></div></div>
+  </div>
+</div>
+
+<div class="day-panel">
+  <div class="day-header-row"><div class="day-badge">DAY 2</div><div class="day-h">9月30日 · 周三 · USJ①（先生+娃） · Selina 深夜抵达<small>USJ DAY 1 · SELINA ARRIVES</small></div><div class="day-weather"><span class="ico">☀️</span><span class="t">约27°/19°</span><span class="cond">大阪·舒适</span></div></div>
+  <div class="timeline">
+    <div class="slot highlight"><div class="time"><strong>全天</strong><em>USJ</em></div><div class="event"><h3>环球影城 Day 1（先生带 3 娃）</h3><p>Selina 今晚才到，赶不上白天，先由先生带孩子们探路第一天。</p></div></div>
+    <div class="slot transit-slot"><div class="time"><strong>21:40</strong><em>抵达</em></div><div class="event"><h3>Selina 抵达关西机场（航班待定）</h3><p>深夜到达，直接回住处和家人会合，不安排当晚活动。</p></div></div>
+  </div>
+</div>
+
+<div class="day-panel">
+  <div class="day-header-row"><div class="day-badge">DAY 3</div><div class="day-h">10月1日 · 周四 · USJ②（全家5口）<small>USJ DAY 2 · TOGETHER</small></div><div class="day-weather"><span class="ico">☀️</span><span class="t">约27°/19°</span><span class="cond">大阪·舒适</span></div></div>
+  <div class="timeline">
+    <div class="slot highlight"><div class="time"><strong>全天</strong><em>USJ</em></div><div class="event"><h3>环球影城 Day 2（2 大 3 小一起）</h3><p>Selina 第一次和孩子们一起逛，两日券的第二天，可以挑前一天没玩尽兴的项目重点补。</p></div></div>
+  </div>
+</div>
+
+<div class="day-panel">
+  <div class="day-header-row"><div class="day-badge">DAY 4</div><div class="day-h">10月2日 · 周五 · 大阪城公园 → 新干线去东京<small>CASTLE PARK · SHINKANSEN TO TOKYO</small></div><div class="day-weather"><span class="ico">☀️</span><span class="t">约27°/19°</span><span class="cond">大阪·舒适</span></div></div>
+  <div class="timeline">
+    <div class="slot"><div class="time"><strong>09:30</strong><em>上午</em></div><div class="event"><h3>大阪城公园 · 轻松走走</h3><p>不登天守阁，护城河边散步、晒太阳，给昨天的 USJ 收个尾。</p></div></div>
+    <div class="slot transit-slot"><div class="time"><strong>13:30</strong><em>新干线</em></div><div class="event"><h3>新大阪站 → 东京站（东海道新干线 のぞみ）</h3><p>约2小时30分。详见下方「换乘导航①」。</p></div></div>
+    <div class="slot"><div class="time"><strong>17:00</strong><em>入住</em></div><div class="event"><h3>抵达东京，入住</h3><p>放行李休息，明天见表哥。</p></div></div>
+  </div>
+</div>
+</section>
+
+<!-- Transit: Osaka -> Tokyo -->
+<div class="transit-card" id="transit-guide">
+  <div class="transit-head">
+    <div class="transit-badge">🚄</div>
+    <div class="transit-title-wrap">
+      <div class="transit-eyebrow">STEP 1 · OSAKA → TOKYO</div>
+      <div class="transit-route">新大阪站 → 东京站（东海道新干线 のぞみ Nozomi）</div>
+    </div>
+    <div class="transit-duration">约 2h30m～2h40m</div>
+  </div>
+  <div class="transit-steps">
+    <div class="transit-step"><div class="num">1</div><div class="txt">新大阪站是东海道新干线大站，<strong>のぞみ／ひかり／こだま</strong>都有停靠，往东京方向的车都是同一个方向、不会坐反（新大阪是这条线偏西端的大站，往东都是往东京去）。</div></div>
+    <div class="transit-step"><div class="num">2</div><div class="txt"><strong>光刷 Suica/ICOCA 进不了新干线闸口！</strong>必须持<strong>新干线车票（乘车券+特急券）</strong>，或用「smartEX」在线预约并绑定IC卡才能刷闸。5 个人出行，<strong>建议提前订指定席</strong>坐一起。</div></div>
+    <div class="transit-step"><div class="num">3</div><div class="txt"><strong>大件行李量一下：</strong>单件三边合计<strong>超过160cm</strong>要免费预约「特大行李空间座位」（不预约上车要补¥1,000）；超过250cm禁止带上车。</div></div>
+  </div>
+  <div class="transit-warn"><span class="lbl">⚠ 别踩坑</span>只带 IC 卡余额到新干线闸口刷不过，务必提前买好新干线票或用 smartEX 绑卡。5 人出行行李多，出发前务必核实每件箱子的三边合计尺寸。</div>
+  <div class="transit-tip"><span class="lbl">💡建议：</span>新大阪站内有便当店，上车前买好，2 个半小时车程正好当午餐/下午茶。</div>
+  <div class="transit-src">来源：JR东海·のぞみ全车指定席期间 railway.jr-central.co.jp/nozomi ｜ JR东海·超大件行李（EN） global.jr-central.co.jp/en/info/oversized-baggage ｜ smartEX·IC卡乘车（EN） smart-ex.jp/en/entraining/iccard（站台号会临时变动，以当天车站电子告示为准）</div>
+</div>
+
+<!-- ============ TOKYO ============ -->
+<section>
+<span class="bgm-sentinel" data-bgm-region="tokyo" aria-hidden="true"></span>
+<div class="region-header" id="tokyo">
+  <div class="region-eyebrow" style="color:var(--r-tokyo-deep)">STAGE 2 · 探亲</div>
+  <h2 class="region-title" style="color:var(--r-tokyo-deep)">东京 <span style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--r-tokyo)">Tokyo</span></h2>
+  <p class="region-note">10/2 晚 —— 10/3。这一趟去东京的理由很简单：先生有个大概二十年没见的表哥住在东京附近，这次带着孩子一起去看看。当地具体怎么接送，要等确认表哥住哪之后才能定。</p>
+</div>
+
+<div class="spots-section">
+  <div class="reserve-alert" style="background:linear-gradient(135deg, #eef5fb 0%, #dceaf5 100%); border-color:var(--line-rail); border-left-color:var(--rail)">
+    <h4 style="color:var(--rail-deep)">📍 待确认：表哥具体在东京哪一带</h4>
+    <p>这段的当地交通建议（电车 / 打车 / 要不要临时租车）要等确认表哥具体在哪个车站或地名附近才能给准信——<strong>出发前务必和先生确认一下</strong>，到时候我们再把这段接送方式补齐。</p>
+    <p style="color:var(--ink-soft)">大方向先给两条：<strong>大阪↔东京这段城际交通不建议租车</strong>（新干线最省心，开车太远太累）；<strong>到了东京当地</strong>，如果表哥住在市区/近郊有车站的地方，电车+偶尔打车就够，东京市区停车贵、路窄不好开；如果是电车不方便的郊区，当地临时租一天车接送可能更省心。</p>
+  </div>
+
+  <article class="spot-card reverse">
+    <div class="spot-photo">
+      <img src="images/tokyo-family-street.jpg" alt="东京 街景" loading="lazy">
+      <div class="photo-tag" style="color:var(--r-tokyo-deep)">10/3 · 全天</div>
+      <div class="spot-thumbs">
+        <img src="images/tokyo-family-street.jpg" alt="东京街景" onclick="this.closest('.spot-card').querySelector('.spot-photo > img').src=this.src">
+        <img src="images/ueno-park.jpg" alt="上野公园" onclick="this.closest('.spot-card').querySelector('.spot-photo > img').src=this.src">
+        <img src="images/tokyo-station-marunouchi.jpg" alt="东京站" onclick="this.closest('.spot-card').querySelector('.spot-photo > img').src=this.src">
+      </div>
+    </div>
+    <div class="spot-body">
+      <div class="spot-no">03 · FAMILY VISIT · 探亲</div>
+      <h3 class="spot-name">见表哥一家<span class="accent-line"></span></h3>
+      <p class="spot-desc">先生的表哥在东京附近生活了大概二十年，这次带孩子过去看看、叙叙旧。<strong>具体见面地点和当地怎么过去，等确认表哥住址后再定。</strong>如果当天还有富余时间，可以顺路安排一个轻松的亲子点（比如上野公园或就近走走），不绑死具体行程，看表哥那边怎么安排更合适。</p>
+      <div class="spot-meta">
+        <div><span>状态</span>地点待确认（见上方提示框）</div>
+        <div><span>备选</span>富余时间可加：上野公园 / 就近散步</div>
+        <div class="caveat">※ 这天的时间线先留空，等地点定了再补具体换乘</div>
+      </div>
+    </div>
+  </article>
+</div>
+
+<div class="day-panel">
+  <div class="day-header-row"><div class="day-badge">DAY 5</div><div class="day-h">10月3日 · 周六 · 东京探亲<small>TOKYO · FAMILY VISIT</small></div><div class="day-weather"><span class="ico">☀️</span><span class="t">约24°/17°</span><span class="cond">东京·初秋舒适</span></div></div>
+  <div class="timeline">
+    <div class="slot highlight"><div class="time"><strong>待定</strong><em>探亲</em></div><div class="event"><h3>和表哥一家见面</h3><p>具体时间地点待确认表哥地址后再排，页面先占位。</p></div></div>
+    <div class="slot"><div class="time"><strong>视情况</strong><em>亲子</em></div><div class="event"><h3>富余时间：上野公园 / 就近走走</h3><p>如果探亲之外还有时间，可以加一个轻松的亲子活动，不强求。</p></div></div>
+  </div>
+</div>
+</section>
+
+<!-- Transit: Tokyo -> Kyoto -->
+<div class="transit-card">
+  <div class="transit-head">
+    <div class="transit-badge">🚄</div>
+    <div class="transit-title-wrap">
+      <div class="transit-eyebrow">STEP 2 · TOKYO → KYOTO</div>
+      <div class="transit-route">东京站 → 京都站（东海道新干线 のぞみ Nozomi）</div>
+    </div>
+    <div class="transit-duration">约 2h11m～2h20m</div>
+  </div>
+  <div class="transit-steps">
+    <div class="transit-step"><div class="num">1</div><div class="txt"><strong>东海道新干线在东京站「八重洲侧」14–19番线。</strong>从JR在来线过来跟着「新幹線 中央/南 乗換口」走约5分钟，别走到「东北・北陆新干线」（20–23番线）——认准「東海道・山陽新幹線」字样。</div></div>
+    <div class="transit-step"><div class="num">2</div><div class="txt">东京站是始发站，<strong>所有车都往西发（品川·新大阪方向），不存在坐反</strong>——上「のぞみ」或「ひかり」都停京都，约2小时15分。</div></div>
+    <div class="transit-step"><div class="num">3</div><div class="txt">同样提醒：<strong>只带IC卡余额刷不过新干线闸口</strong>，要新干线票或smartEX绑卡；大件行李三边合计超160cm要预约「特大行李空间座位」。</div></div>
+  </div>
+  <div class="transit-warn"><span class="lbl">⚠ 别踩坑</span>东京站有多组新干线检票口，出发前认准「東海道・山陽新幹線」字样再进闸。</div>
+  <div class="transit-tip"><span class="lbl">💡建议：</span>伏见稻荷离京都站很近（JR奈良线2站），行李可以先寄存在京都站或酒店，轻装去逛。</div>
+  <div class="transit-src">来源：JR东海·のぞみ全车指定席期间 railway.jr-central.co.jp/nozomi ｜ smartEX·IC卡乘车（EN） smart-ex.jp/en/entraining/iccard（站台号会临时变动，以当天车站电子告示为准）</div>
+</div>
+
+<!-- ============ KYOTO ============ -->
+<section>
+<span class="bgm-sentinel" data-bgm-region="kyoto" aria-hidden="true"></span>
+<div class="region-header" id="kyoto">
+  <div class="region-eyebrow" style="color:var(--r-kyoto-deep)">STAGE 3 · 精华一日</div>
+  <h2 class="region-title" style="color:var(--r-kyoto-deep)">京都 <span style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--r-kyoto)">Kyoto</span></h2>
+  <p class="region-note">10/3 傍晚抵达 —— 10/5。京都只挑最经典的几个点，不贪多：抵达当天先去离车站最近的伏见稻荷；第二天一早去金阁寺，傍晚在祇园吃饭、逛花见小路，晚上灯亮起来的八坂神社很有味道。</p>
+</div>
+
+<div class="spots-section">
+  <article class="spot-card reverse">
+    <div class="spot-photo">
+      <img src="images/fushimi-inari-torii-new.jpg" alt="伏见稻荷 千本鸟居" loading="lazy">
+      <div class="photo-tag" style="color:var(--r-kyoto-deep)">10/3 傍晚抵达</div>
+      <div class="spot-thumbs">
+        <img src="images/fushimi-inari-torii-new.jpg" alt="千本鸟居" onclick="this.closest('.spot-card').querySelector('.spot-photo > img').src=this.src">
+        <img src="images/fushimi-inari-gate.jpg" alt="伏见稻荷大门" onclick="this.closest('.spot-card').querySelector('.spot-photo > img').src=this.src">
+        <img src="images/fushimi-inari-path.jpg" alt="鸟居参道" onclick="this.closest('.spot-card').querySelector('.spot-photo > img').src=this.src">
+      </div>
+    </div>
+    <div class="spot-body">
+      <div class="spot-no">04 · FUSHIMI INARI</div>
+      <h3 class="spot-name">伏见稻荷大社 · 千本鸟居<span class="accent-line"></span></h3>
+      <p class="spot-desc">上千座朱红鸟居连成的隧道，京都最出片的画面之一。<strong>免费、24小时开放</strong>，离京都站只有 JR 奈良线 2 站，抵达当天傍晚放完行李就能直接去。带 3 个孩子<strong>只看核心（本殿→千本鸟居→奥社）往返约15–20分钟</strong>即可，不必登稻荷山全程。</p>
+      <div class="spot-meta">
+        <div><span>门票</span>免费 · 24小时开放</div>
+        <div><span>怎么去</span>JR奈良线到「稲荷」站，出站正对神社大门</div>
+        <div><span>避坑</span>JR「稲荷」≠京阪「伏见稲荷」——JR那个就在门口</div>
+      </div>
+    </div>
+  </article>
+
+  <article class="spot-card">
+    <div class="spot-photo">
+      <img src="images/kinkakuji-new.jpg" alt="金阁寺" loading="lazy">
+      <div class="photo-tag" style="color:var(--r-kyoto-deep)">10/4 · 上午</div>
+      <div class="spot-thumbs">
+        <img src="images/kinkakuji-new.jpg" alt="金阁寺" onclick="this.closest('.spot-card').querySelector('.spot-photo > img').src=this.src">
+        <img src="images/kinkakuji-pond.jpg" alt="金阁寺 镜湖池" onclick="this.closest('.spot-card').querySelector('.spot-photo > img').src=this.src">
+        <img src="images/kinkakuji-garden.jpg" alt="金阁寺 庭园" onclick="this.closest('.spot-card').querySelector('.spot-photo > img').src=this.src">
+      </div>
+    </div>
+    <div class="spot-body">
+      <div class="spot-no">05 · KINKAKU-JI · 金阁寺</div>
+      <h3 class="spot-name">金阁寺 · 镜湖池<span class="accent-line"></span></h3>
+      <p class="spot-desc">世界遗产，金箔覆顶的舍利殿倒映在镜湖池里，是京都最具代表性的画面之一。<strong>快进快出，40分钟左右就能逛完</strong>（绕池一圈+小庭园），安排在上午人少、光线也好。位置在京都西北，离伏见稻荷/祇园都有一段距离，需要巴士或打车。</p>
+      <div class="spot-meta">
+        <div><span>门票</span>大人¥500 · 小学生¥300（以官网为准）</div>
+        <div><span>时间</span>9:00–17:00</div>
+        <div><span>怎么去</span>京都站/河原町 搭市巴士约30-40分钟，或打车更省心</div>
+      </div>
+    </div>
+  </article>
+
+  <article class="spot-card reverse">
+    <div class="spot-photo">
+      <img src="images/gion-evening-new.jpg" alt="祇园 花见小路 夜晚" loading="lazy">
+      <div class="photo-tag" style="color:var(--r-kyoto-deep)">10/4 · 傍晚</div>
+      <div class="spot-thumbs">
+        <img src="images/gion-evening-new.jpg" alt="祇园夜景" onclick="this.closest('.spot-card').querySelector('.spot-photo > img').src=this.src">
+        <img src="images/gion-hanamikoji.jpg" alt="花见小路" onclick="this.closest('.spot-card').querySelector('.spot-photo > img').src=this.src">
+        <img src="images/yasaka-shrine-night.jpg" alt="八坂神社 夜灯" onclick="this.closest('.spot-card').querySelector('.spot-photo > img').src=this.src">
+      </div>
+    </div>
+    <div class="spot-body">
+      <div class="spot-no">06 · GION · 祇园夜晚</div>
+      <h3 class="spot-name">祇园 · 花见小路吃饭逛街<span class="accent-line"></span></h3>
+      <p class="spot-desc">这一天的收尾放在祇园：<strong>石板路的花见小路</strong>两旁是传统町屋和茶屋，傍晚灯笼亮起来氛围最好；旁边的<strong>八坂神社</strong>晚上点灯后很有味道，免费开放可以随便走走。吃饭就近在祇园一带找家餐厅，不绑死具体店名。</p>
+      <div class="spot-meta">
+        <div><span>逛什么</span>花见小路石板街 + 八坂神社夜灯</div>
+        <div><span>吃饭</span>祇园一带就近选择，未指定具体店</div>
+        <div><span>怎么去</span>京阪本线「祇园四条」站，或市巴士「祇园」站</div>
+      </div>
+    </div>
+  </article>
+</div>
+
+<div class="day-panel">
+  <div class="day-header-row"><div class="day-badge">DAY 6</div><div class="day-h">10月3日晚 · 抵达京都 → 伏见稻荷<small>ARRIVE KYOTO · FUSHIMI INARI</small></div><div class="day-weather"><span class="ico">🌤️</span><span class="t">约25°/16°</span><span class="cond">京都·初秋舒适</span></div></div>
+  <div class="timeline">
+    <div class="slot transit-slot"><div class="time"><strong>18:00</strong><em>抵达</em></div><div class="event"><h3>东京站 → 京都站（新干线）</h3><p>放行李，轻装出门。</p></div></div>
+    <div class="slot highlight"><div class="time"><strong>19:00</strong><em>傍晚</em></div><div class="event"><h3>伏见稻荷大社 · 千本鸟居</h3><p>JR奈良线2站直达，核心区域往返20分钟左右，天黑前赶到最好。</p></div></div>
+  </div>
+</div>
+
+<div class="day-panel">
+  <div class="day-header-row"><div class="day-badge">DAY 7</div><div class="day-h">10月4日 · 周日 · 金阁寺 → 祇园夜晚<small>KINKAKU-JI · GION</small></div><div class="day-weather"><span class="ico">🌤️</span><span class="t">约25°/16°</span><span class="cond">京都·初秋舒适</span></div></div>
+  <div class="timeline">
+    <div class="slot highlight"><div class="time"><strong>09:30</strong><em>上午</em></div><div class="event"><h3>金阁寺 · 镜湖池</h3><p>人少、光线好，快进快出40分钟左右。</p></div></div>
+    <div class="slot"><div class="time"><strong>12:00</strong><em>午餐</em></div><div class="event"><h3>市区就近午餐</h3><p>未指定具体店，就近选择。</p></div></div>
+    <div class="slot highlight"><div class="time"><strong>17:00</strong><em>傍晚</em></div><div class="event"><h3>祇园 · 花见小路 · 八坂神社夜灯</h3><p>晚饭就在祇园一带找，饭后逛花见小路、看点灯的八坂神社。</p></div></div>
+  </div>
+</div>
+</section>
+
+<!-- Transit: Kyoto -> Osaka -->
+<div class="transit-card">
+  <div class="transit-head">
+    <div class="transit-badge">🚃</div>
+    <div class="transit-title-wrap">
+      <div class="transit-eyebrow">STEP 3 · KYOTO → OSAKA</div>
+      <div class="transit-route">京都站 → 大阪（JR新快速）</div>
+    </div>
+    <div class="transit-duration">约 29 分 · ¥580</div>
+  </div>
+  <div class="transit-steps">
+    <div class="transit-step"><div class="num">1</div><div class="txt">京都站 JR京都线<strong>新快速</strong>，往「大阪・三ノ宮・神户・姫路方向」，约29分钟、¥580到大阪站（梅田一带）。</div></div>
+    <div class="transit-step"><div class="num">2</div><div class="txt"><strong>如果住难波方向，JR到不了！</strong>要「JR到大阪站 → 换大阪Metro御堂筋线」往「なんば方向」，约9分钟、¥240。具体看最终住处定在哪一带。</div></div>
+  </div>
+  <div class="transit-warn"><span class="lbl">⚠ 别坐反</span>在京都站往"米原・草津・长滨方向"是反的（越走离大阪越远），要往"大阪・神户・姫路方向"。</div>
+  <div class="transit-tip"><span class="lbl">💡建议：</span>新快速也停「新大阪」，如果住处更靠新大阪，可以在新大阪站直接换乘，更省一趟折腾。</div>
+  <div class="transit-src">来源：京都→大阪 JR新快速（第三方汇总）kyoto-rys.com ｜ 大阪Metro 御堂筋线（站台号以当天车站电子告示为准，票价为参考值）</div>
+</div>
+
+<!-- ============ OSAKA (FINAL) ============ -->
+<section>
+<span class="bgm-sentinel" data-bgm-region="osaka" aria-hidden="true"></span>
+<div class="region-header" id="osaka-final">
+  <div class="region-eyebrow" style="color:var(--r-osaka-deep)">STAGE 4 · 购物 + 送机</div>
+  <h2 class="region-title" style="color:var(--r-osaka-deep)">大阪 <span style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--r-osaka)">Osaka</span></h2>
+  <p class="region-note">10/5 —— 10/8。回到大阪，留一整天专心购物；接下来两人分开走：10/7 中午先送 Selina 去关西机场飞悉尼，先生带着 3 个孩子多留一天，10/8 中午再从关西机场飞墨尔本。</p>
+</div>
+
+<div class="spots-section">
+  <div class="section-eyebrow" style="color:var(--r-osaka-deep)">OSAKA HIGHLIGHTS · 收尾这几天</div>
+
+  <article class="spot-card reverse">
+    <div class="spot-photo">
+      <img src="images/shinsaibashi-shopping.jpg" alt="心斋桥购物街" loading="lazy">
+      <div class="photo-tag" style="color:var(--r-osaka-deep)">10/6 · 全天</div>
+      <div class="spot-thumbs">
+        <img src="images/shinsaibashi-shopping.jpg" alt="心斋桥" onclick="this.closest('.spot-card').querySelector('.spot-photo > img').src=this.src">
+        <img src="images/namba-street.jpg" alt="难波街景" onclick="this.closest('.spot-card').querySelector('.spot-photo > img').src=this.src">
+        <img src="images/dotonbori-day.jpg" alt="道顿堀 白天" onclick="this.closest('.spot-card').querySelector('.spot-photo > img').src=this.src">
+      </div>
+    </div>
+    <div class="spot-body">
+      <div class="spot-no">07 · SHOPPING DAY · 购物日</div>
+      <h3 class="spot-name">心斋桥 / 难波 · 全天购物<span class="accent-line"></span></h3>
+      <p class="spot-desc">整趟旅程里唯一一个不硬排景点的整天，<strong>专心留给购物</strong>：心斋桥商店街、道顿堀一带逛吃逛买，给孩子们挑纪念品，也给两人各自接下来的行程做采买准备。</p>
+      <div class="spot-meta">
+        <div><span>去哪</span>心斋桥筋商店街 / 道顿堀一带</div>
+        <div><span>去机场</span>难波直搭南海Rapi:t 到关西机场约35–42分</div>
+      </div>
+    </div>
+  </article>
+</div>
+
+<div class="day-panel">
+  <div class="day-header-row"><div class="day-badge">DAY 8</div><div class="day-h">10月5日 · 周一 · 京都 → 大阪<small>KYOTO → OSAKA</small></div><div class="day-weather"><span class="ico">☀️</span><span class="t">约27°/19°</span><span class="cond">大阪·舒适</span></div></div>
+  <div class="timeline">
+    <div class="slot transit-slot"><div class="time"><strong>上午</strong><em>换乘</em></div><div class="event"><h3>京都站 → 大阪</h3><p>JR新快速约29分钟，详见「换乘导航③」。</p></div></div>
+    <div class="slot"><div class="time"><strong>下午</strong><em>休整</em></div><div class="event"><h3>回住处休整，晚上简单吃点</h3><p>为明天的整天购物养精蓄锐。</p></div></div>
+  </div>
+</div>
+
+<div class="day-panel">
+  <div class="day-header-row"><div class="day-badge">DAY 9</div><div class="day-h">10月6日 · 周二 · 大阪全天购物<small>SHOPPING DAY</small></div><div class="day-weather"><span class="ico">☀️</span><span class="t">约27°/19°</span><span class="cond">大阪·舒适</span></div></div>
+  <div class="timeline">
+    <div class="slot highlight"><div class="time"><strong>全天</strong><em>购物</em></div><div class="event"><h3>心斋桥 / 难波 逛街购物</h3><p>不硬排具体店铺，一家人随心逛买，给这趟旅程收个轻松的尾。</p></div></div>
+  </div>
+</div>
+
+<div class="day-panel">
+  <div class="day-header-row"><div class="day-badge">DAY 10</div><div class="day-h">10月7日 · 周三 · 送 Selina 飞悉尼<small>SELINA DEPARTS · KIX → SYDNEY</small></div><div class="day-weather"><span class="ico">☀️</span><span class="t">约27°/19°</span><span class="cond">大阪·舒适</span></div></div>
+  <div class="timeline">
+    <div class="slot transit-slot"><div class="time"><strong>上午</strong><em>送机</em></div><div class="event"><h3>送 Selina 去关西机场</h3><p>中午航班飞悉尼（具体航班待定），提前预留好去机场的时间。</p></div></div>
+    <div class="slot"><div class="time"><strong>下午</strong><em>自由</em></div><div class="event"><h3>先生+3娃 大阪自由活动</h3><p>Selina 走后，剩下的人在大阪再多待一天，随意安排。</p></div></div>
+  </div>
+</div>
+
+<div class="day-panel">
+  <div class="day-header-row"><div class="day-badge">DAY 11</div><div class="day-h">10月8日 · 周四 · 先生+3娃 飞墨尔本<small>DEPARTURE · KIX → MELBOURNE</small></div><div class="day-weather"><span class="ico">☀️</span><span class="t">约27°/19°</span><span class="cond">大阪·舒适</span></div></div>
+  <div class="timeline">
+    <div class="slot"><div class="time"><strong>上午</strong><em>退房</em></div><div class="event"><h3>退房 + 最后采买</h3><p>关西机场免税店也可以留一点时间再逛逛。</p></div></div>
+    <div class="slot transit-slot"><div class="time"><strong>中午</strong><em>返程</em></div><div class="event"><h3>HO1506 关西机场 → 墨尔本</h3><p>十天旅程在这里画上句号。</p></div></div>
+  </div>
+</div>
+</section>
+
+<!-- ============ WEATHER ============ -->
+<section class="spots-section">
+  <div class="day-panel weather-panel">
+    <div class="day-header-row"><div class="day-badge" style="background:linear-gradient(135deg,var(--rail-deep),var(--rail))">天气</div><div class="day-h">十日天气参考 · 初秋<small>WEATHER · 气候常态，非具体预报</small></div></div>
+    <p style="font-size:14px;line-height:1.85;color:var(--ink-soft);margin:2px 0 10px">出发还有一段时间，逐日预报还没出来。下面是三城<strong>往年 9月末-10月初 气候常态</strong>参考；<strong>这不是 2026 年这几天的具体预报</strong>，真正准的逐日预报要出发前约 1 周才出来，到时候请用下面的实时链接再查一次。</p>
+    <div class="weather-rows">
+      <div class="weather-city">
+        <div class="cname">大阪 Osaka · 9/29–10/2 · 10/5–10/8</div>
+        <div class="temps">☀️ 约 27° / 19°</div>
+        <div class="feel">初秋，日夜温差开始拉大，白天舒适、早晚转凉，建议带件薄外套。</div>
+        <a href="https://weathernews.jp/onebox/tenki/osaka/" target="_blank" rel="noopener">weathernews 大阪实时 →</a>
+      </div>
+      <div class="weather-city">
+        <div class="cname">东京 Tokyo · 10/3</div>
+        <div class="temps">☀️ 约 24° / 17°</div>
+        <div class="feel">三城里最凉爽，早晚更明显转凉，适合一整天在外走动。</div>
+        <a href="https://weathernews.jp/onebox/tenki/tokyo/" target="_blank" rel="noopener">weathernews 东京实时 →</a>
+      </div>
+      <div class="weather-city">
+        <div class="cname">京都 Kyoto · 10/3–10/5</div>
+        <div class="temps">🌤️ 约 25° / 16°</div>
+        <div class="feel">盆地地形早晚温差最大，白天出行舒适，晚上祇园逛街建议加件外套。</div>
+        <a href="https://weathernews.jp/onebox/tenki/kyoto/" target="_blank" rel="noopener">weathernews 京都实时 →</a>
+      </div>
+    </div>
+    <div class="weather-disclaimer">
+      ⚠ 以上是<strong>往年同期气候常态，不是 2026 年那几天的具体预报</strong>。9-10月也是<strong>台风季尾声</strong>，出发前约 1 周请在 weathernews.jp 查三城实时预报 + 留意台风动态。
+    </div>
+  </div>
+</section>
+
+<!-- ============ PACKING ============ -->
+<section class="spots-section">
+  <div class="section-eyebrow">BEFORE YOU GO · 行前准备</div>
+  <h2 class="section-title" id="packing">带什么 · <span class="accent">怎么更省心</span></h2>
+  <p class="section-sub">2 大 3 小十天，初秋天气，下面几样先备好。</p>
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="label">Tickets · 门票</div>
+      <h4>🎟 USJ 两日券</h4>
+      <div class="rows">
+        <div class="row"><span>哪买</span>usj.co.jp 官网/APP，或 Klook/Trip.com 等官方授权代理</div>
+        <div class="row"><span>定价</span>动态定价，出发前再查实时价格</div>
+        <div class="row"><span>避坑</span>不买转卖/二手票，二维码会被作废</div>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="label">Cash & IC · 支付</div>
+      <h4>💳 现金 · IC卡</h4>
+      <div class="rows">
+        <div class="row"><span>IC卡</span>Suica/ICOCA（手机可加到Apple/Google Pay）</div>
+        <div class="row"><span>注意</span><strong>IC卡刷不进新干线闸</strong>，要新干线票/smartEX</div>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="label">Luggage · 行李</div>
+      <h4>🧳 行李 · 电子</h4>
+      <div class="rows">
+        <div class="row"><span>新干线</span>大箱三边>160cm要订"特大行李座"</div>
+        <div class="row"><span>分批送机</span>10/7 Selina 先走、10/8 先生孩子再走，行李提前分好</div>
+        <div class="row"><span>电子</span>充电宝·A型插座转接头</div>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="label">Weather · 穿衣</div>
+      <h4>🧥 初秋温差</h4>
+      <div class="rows">
+        <div class="row"><span>白天</span>短袖/薄长袖即可</div>
+        <div class="row"><span>早晚</span>带件薄外套，京都盆地温差更大</div>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="label">Health · 常备</div>
+      <h4>🧰 常备药</h4>
+      <div class="rows">
+        <div class="row"><span>晕车</span>新干线/巴士，孩子晕车药</div>
+        <div class="row"><span>肠胃</span>吃得杂，备肠胃药</div>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="label">Docs · 证件</div>
+      <h4>📋 证件 · 待确认清单</h4>
+      <div class="rows">
+        <div class="row"><span>待确认①</span>表哥具体地址/联系方式</div>
+        <div class="row"><span>待确认②</span>Olina's House 是否最终确认预订</div>
+        <div class="row"><span>待确认③</span>Selina 自己的往返航班号</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CAUTIONS ============ -->
+<div class="day-panel cautions-panel">
+  <div class="day-header-row"><div class="day-badge">注意</div><div class="day-h">出行提醒 / Good to Know</div></div>
+  <div class="caution-list">
+    <div class="item"><div class="ico">1</div><div class="text"><strong>三项还没最终确认</strong>——住宿 Olina's House、东京表哥具体地址、Selina 自己的往返航班号，出发前务必逐一落实。</div></div>
+    <div class="item"><div class="ico">2</div><div class="text"><strong>两人分开送机</strong>——10/7 中午 Selina 先飞悉尼，10/8 中午先生+3娃 才飞墨尔本，行李和证件要提前分清楚谁带什么。</div></div>
+    <div class="item"><div class="ico">3</div><div class="text"><strong>IC卡刷不进新干线闸</strong>——大阪↔东京、东京↔京都两段都要新干线车票或smartEX绑卡；大件行李>160cm要免费订"特大行李座"。</div></div>
+    <div class="item"><div class="ico">4</div><div class="text"><strong>USJ门票认准官方渠道</strong>——usj.co.jp官网或Klook等官方授权代理，转卖票会被作废；价格动态浮动，出发前再查实价。</div></div>
+    <div class="item"><div class="ico">5</div><div class="text"><strong>去难波别只坐JR</strong>——JR京都线/大阪站到不了真正的难波，要换大阪Metro御堂筋线。</div></div>
+    <div class="item"><div class="ico">6</div><div class="text"><strong>初秋早晚温差大</strong>——尤其京都盆地，白天舒适、晚上偏凉，带件薄外套。</div></div>
+  </div>
+</div>
+
+<!-- ============ FAMILY BAND ============ -->
+<div class="family-band">
+  <div class="caption">
+    <div class="caption-eyebrow">TOGETHER · 2 大 3 小</div>
+    <div class="caption-text">这十天，从大阪的环球影城开始，到东京看看久违的家人，再到京都走一走最经典的角落——最后大家一起在大阪买买买，才各自启程回家。</div>
+  </div>
+  <div class="silhouettes">
+    <div class="hill"></div>
+    <div class="person p-a"><i></i></div>
+    <div class="person p-b"><i></i></div>
+    <div class="person p-c"><i></i></div>
+    <div class="person p-d"><i></i></div>
+    <div class="person p-e"><i></i></div>
+  </div>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-quote">愿这十天玩得尽兴、见得开心，购物买得满意，两程航班都平平安安。</div>
+  <div>为 Selina 一家 2 大 3 小企划 · 大阪 · 东京 · 京都 · 2026年秋</div>
+  <div class="footer-credit">OSAKA · TOKYO · KYOTO FAMILY TRIP — AUTUMN 2026 · MADE WITH CARE</div>
+  <div class="footer-credit">景点照片来自 Wikimedia Commons 等公开授权素材（CC BY-SA / 公有领域），仅作家庭行程参考</div>
+</footer>
+
+</main>
+
+<!-- ============ AUDIO ============ -->
+<audio id="bgm" src="bgm-osaka.m4a" preload="auto" loop></audio>
+<button class="music-toggle playing" id="music-toggle" type="button" aria-label="背景音乐 播放/暂停">
+  <span class="music-icon">♪</span>
+</button>
+<div class="music-badge" id="music-badge"></div>
+
+<script>
+(function() {
+  const audio = document.getElementById('bgm');
+  const player = document.getElementById('music-player');
+  const mpBtn = document.getElementById('mp-btn');
+  const mpTrack = document.getElementById('mp-track');
+  const mpFill = document.getElementById('mp-fill');
+  const mpThumb = document.getElementById('mp-thumb');
+  const mpTime = document.getElementById('mp-time');
+  const mpNow = document.getElementById('mp-now');
+  const toggle = document.getElementById('music-toggle');
+  const badge = document.getElementById('music-badge');
+  const overlay = document.getElementById('enter-overlay');
+  const enterBtn = document.getElementById('enter-btn');
+
+  audio.volume = 0.38;
+
+  const REGION_TRACKS = { osaka: 'bgm-osaka.m4a', tokyo: 'bgm-tokyo.m4a', kyoto: 'bgm-kyoto.m4a' };
+  const REGION_LABELS = { osaka: '大阪', tokyo: '东京', kyoto: '京都' };
+  let currentRegion = 'osaka';
+  let fadeTimer = null;
+  let wantsPlaying = true;
+
+  function fmt(t) {
+    if (!isFinite(t)) return '0:00';
+    const m = Math.floor(t / 60), s = Math.floor(t % 60);
+    return m + ':' + (s < 10 ? '0' : '') + s;
+  }
+  function reflect() {
+    const playing = !audio.paused;
+    player.classList.toggle('playing', playing);
+    toggle.classList.toggle('playing', playing);
+    toggle.classList.toggle('paused', !playing);
+  }
+  function updateProgress() {
+    const d = audio.duration || 0, c = audio.currentTime || 0;
+    const pct = d ? (c / d) * 100 : 0;
+    mpFill.style.width = pct + '%';
+    mpThumb.style.left = pct + '%';
+    mpTime.textContent = fmt(c) + ' / ' + fmt(d);
+  }
+  audio.addEventListener('play', reflect);
+  audio.addEventListener('pause', reflect);
+  audio.addEventListener('timeupdate', updateProgress);
+  audio.addEventListener('loadedmetadata', updateProgress);
+
+  function showBadge(text) {
+    badge.textContent = text;
+    badge.classList.add('show');
+    clearTimeout(showBadge._t);
+    showBadge._t = setTimeout(function () { badge.classList.remove('show'); }, 2600);
+  }
+
+  function tryPlay() {
+    var p = audio.play();
+    if (p && typeof p.catch === 'function') p.catch(function () {});
+  }
+
+  function resumeOnGesture() {
+    if (wantsPlaying && audio.paused) tryPlay();
+  }
+  ['pointerdown', 'touchstart', 'keydown', 'wheel'].forEach(function (evt) {
+    window.addEventListener(evt, resumeOnGesture, { passive: true });
+  });
+
+  function switchRegion(region) {
+    if (region === currentRegion || !REGION_TRACKS[region]) return;
+    currentRegion = region;
+    mpNow.textContent = '♪ ' + REGION_LABELS[region];
+    if (!wantsPlaying) { audio.src = REGION_TRACKS[region]; return; }
+    clearInterval(fadeTimer);
+    var FADE_STEPS = 8;
+    var outStep = 0;
+    fadeTimer = setInterval(function () {
+      outStep++;
+      audio.volume = Math.max(0, 0.38 * (1 - outStep / FADE_STEPS));
+      if (outStep >= FADE_STEPS) {
+        clearInterval(fadeTimer);
+        audio.src = REGION_TRACKS[region];
+        audio.currentTime = 0;
+        tryPlay();
+        showBadge('♪ 切换到 ' + REGION_LABELS[region] + ' 氛围');
+        var inStep = 0;
+        fadeTimer = setInterval(function () {
+          inStep++;
+          audio.volume = Math.min(0.38, 0.38 * inStep / FADE_STEPS);
+          if (inStep >= FADE_STEPS) clearInterval(fadeTimer);
+        }, 55);
+      }
+    }, 55);
+  }
+
+  const sentinels = Array.prototype.slice.call(
+    document.querySelectorAll('.bgm-sentinel[data-bgm-region]')
+  );
+  function pickRegionByScroll() {
+    if (!sentinels.length) return;
+    var line = window.innerHeight * 0.5;
+    var active = sentinels[0].getAttribute('data-bgm-region');
+    sentinels.forEach(function (el) {
+      if (el.getBoundingClientRect().top <= line) {
+        active = el.getAttribute('data-bgm-region');
+      }
+    });
+    switchRegion(active);
+  }
+  var scrollScheduled = false;
+  window.addEventListener('scroll', function () {
+    if (scrollScheduled) return;
+    scrollScheduled = true;
+    requestAnimationFrame(function () {
+      scrollScheduled = false;
+      pickRegionByScroll();
+    });
+  }, { passive: true });
+  pickRegionByScroll();
+
+  function playAudio() { wantsPlaying = true; tryPlay(); }
+  function pauseAudio() { wantsPlaying = false; audio.pause(); }
+
+  mpBtn.addEventListener('click', function () { audio.paused ? playAudio() : pauseAudio(); });
+  toggle.addEventListener('click', function () { audio.paused ? playAudio() : pauseAudio(); });
+
+  function seek(clientX) {
+    const rect = mpTrack.getBoundingClientRect();
+    const pct = Math.min(1, Math.max(0, (clientX - rect.left) / rect.width));
+    if (isFinite(audio.duration)) audio.currentTime = pct * audio.duration;
+  }
+  let dragging = false;
+  mpTrack.addEventListener('mousedown', function (e) { dragging = true; seek(e.clientX); });
+  window.addEventListener('mousemove', function (e) { if (dragging) seek(e.clientX); });
+  window.addEventListener('mouseup', function () { dragging = false; });
+  mpTrack.addEventListener('touchstart', function (e) { dragging = true; seek(e.touches[0].clientX); }, { passive: true });
+  mpTrack.addEventListener('touchmove', function (e) { if (dragging) seek(e.touches[0].clientX); }, { passive: true });
+  window.addEventListener('touchend', function () { dragging = false; });
+
+  function enter() {
+    overlay.classList.add('hidden');
+    document.body.style.overflow = '';
+    playAudio();
+    document.removeEventListener('keydown', onKey);
+  }
+  function onKey(e) { if (e.key === 'Enter' || e.key === ' ') enter(); }
+  overlay.addEventListener('click', enter);
+  enterBtn.addEventListener('click', function (e) { e.stopPropagation(); enter(); });
+  document.addEventListener('keydown', onKey);
+  document.body.style.overflow = 'hidden';
+})();
+</script>
+</body>
+</html>
