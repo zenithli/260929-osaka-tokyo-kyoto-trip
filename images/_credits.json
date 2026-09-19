@@ -92,9 +92,9 @@
   },
   {
     "file": "tsuruhashi-station.jpg",
-    "source_title": "File:JR Tsuruhashi Station central entrance.jpg",
-    "artist": "切干大根",
-    "license": "CC BY-SA 4.0",
+    "source_title": "File:Osaka Korea Town 22.jpg",
+    "artist": "Makibao1023",
+    "license": "CC BY-SA 3.0",
     "source": "Wikimedia Commons"
   },
   {
@@ -221,6 +221,48 @@
     "source_title": "File:The spectacular Whale shark (6453177275).jpg",
     "artist": "Flickr upload (via Commons)",
     "license": "CC BY 2.0",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "file": "sensoji-kaminarimon.jpg",
+    "source_title": "File:The great red lantern in Kaminarimon gate 雷門, Asakusa (6155448439).jpg",
+    "artist": "Flickr upload (via Commons)",
+    "license": "CC BY 2.0",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "file": "sensoji-nakamise.jpg",
+    "source_title": "File:Nakamise Shopping Street, Asakusa on June 22nd, 2016.jpg",
+    "artist": "Choi2451",
+    "license": "CC BY-SA 4.0",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "file": "sensoji-hall.jpg",
+    "source_title": "File:Main Hall, Sensoji 20241019.jpg",
+    "artist": "Contributor listed on file page",
+    "license": "CC BY 4.0",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "file": "tokyo-skytree-main.jpg",
+    "source_title": "File:20181123 Tokyo Skytree-2.jpg",
+    "artist": "Balon Greyjoy",
+    "license": "CC0",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "file": "tokyo-skytree-asakusa.jpg",
+    "source_title": "File:View of Tokyo Skytree from Asakusa 20190420 1.jpg",
+    "artist": "DXR",
+    "license": "CC BY-SA 4.0",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "file": "tokyo-skytree-view2.jpg",
+    "source_title": "File:Tokyo Skytree View 2.jpg",
+    "artist": "Pinterpandai",
+    "license": "CC BY-SA 4.0",
     "source": "Wikimedia Commons"
   }
 ]
