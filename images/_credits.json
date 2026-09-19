@@ -43,16 +43,16 @@
   },
   {
     "file": "gion-evening-new.jpg",
-    "source_title": "File:Facade of a dwelling with sudare, wooden balustrades and yellow lamp, Shinbashi-dori, Gion, Kyoto, Japan.jpg",
+    "source_title": "File:Yasaka-dori early morning with street lanterns and the Tower of Yasaka (Hokan-ji Temple), Kyoto, Japan.jpg",
     "artist": "Basile Morin",
     "license": "CC BY-SA 4.0",
     "source": "Wikimedia Commons"
   },
   {
     "file": "gion-hanamikoji.jpg",
-    "source_title": "File:Streets of Gion, Kyoto - Gion7709.jpg",
-    "artist": "Flickr upload (via Commons)",
-    "license": "CC0",
+    "source_title": "File:GIO - Yasaka Pagoda seen from Higashiyama near Gion, Kyoto, Japan, 2015.jpg",
+    "artist": "Contributor listed on file page",
+    "license": "CC BY-SA 4.0",
     "source": "Wikimedia Commons"
   },
   {
@@ -92,9 +92,9 @@
   },
   {
     "file": "tsuruhashi-station.jpg",
-    "source_title": "File:Osaka Korea Town 22.jpg",
-    "artist": "Makibao1023",
-    "license": "CC BY-SA 3.0",
+    "source_title": "File:Tsuruhashi - panoramio (5).jpg",
+    "artist": "panoramio upload",
+    "license": "CC BY 3.0",
     "source": "Wikimedia Commons"
   },
   {
@@ -113,9 +113,9 @@
   },
   {
     "file": "namba-street.jpg",
-    "source_title": "File:Osaka-Namba Station 260125.jpg",
-    "artist": "Aspere",
-    "license": "CC0",
+    "source_title": "File:Glico Man Neon Sign and Ebisubashi Bridge at night.jpg",
+    "artist": "そらみみ",
+    "license": "CC BY-SA 4.0",
     "source": "Wikimedia Commons"
   },
   {
@@ -165,6 +165,62 @@
     "source_title": "File:Universal Studios Japan 2019,08.jpg",
     "artist": "Rebirth10",
     "license": "CC0",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "file": "food-takoyaki.jpg",
+    "source_title": "File:Takoyaki dish.jpg",
+    "artist": "sayo ts",
+    "license": "CC0",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "file": "food-okonomiyaki.jpg",
+    "source_title": "File:Okonomiyaki 001.jpg",
+    "artist": "ume-y",
+    "license": "CC BY 2.0",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "file": "food-kani.jpg",
+    "source_title": "File:Fresh Matsuba Crab Full Course Kaiseki (30208246965).jpg",
+    "artist": "Flickr upload (via Commons)",
+    "license": "CC BY 2.0",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "file": "food-yudofu.jpg",
+    "source_title": "File:Yudofu meal set in Kyoto.jpg",
+    "artist": "ZhengZhou",
+    "license": "CC BY-SA 4.0",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "file": "food-ramen.jpg",
+    "source_title": "File:A bowl of tonkotsu ramen at Ichiran in Tokyo in July 2026.jpg",
+    "artist": "Gatorfan252525",
+    "license": "CC BY-SA 4.0",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "file": "kaiyukan-main.jpg",
+    "source_title": "File:Kaiyukan Manta and Whale shark.JPG",
+    "artist": "SR EXR",
+    "license": "CC0",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "file": "kaiyukan-tank.jpg",
+    "source_title": "File:Star attraction of Osaka Aquarium Kaiyukan (6453172935).jpg",
+    "artist": "Flickr upload (via Commons)",
+    "license": "CC BY 2.0",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "file": "kaiyukan-whaleshark.jpg",
+    "source_title": "File:The spectacular Whale shark (6453177275).jpg",
+    "artist": "Flickr upload (via Commons)",
+    "license": "CC BY 2.0",
     "source": "Wikimedia Commons"
   }
 ]
